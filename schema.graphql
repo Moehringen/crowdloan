@@ -1,0 +1,62 @@
+type Parachain @entity {
+  id: ID!
+  paraId: Int!
+  createdAt: Date
+  creationBlock: Int
+  deregistered: Boolean!
+  deposit: BigInt!
+  manager: String!
+  funds: [Crowdloan] @derivedFrom(field: "parachain")
+  # activeFund: Crowdloan
+  # latestBid: Bid
+  chronicle: Chronicle
+}
+
+type Crowdloan @entity {
+  id: ID! # generated fund address
+  parachain: Parachain!
+  depositor: String!
+  verifier: String
+  cap: BigInt!
+  raised: BigInt! @index
+  lockExpiredBlock: Int!
+  blockNum: Int
+  firstSlot: Int!
+  lastSlot: Int!
+  status: String! @index
+  leaseExpiredBlock: Int
+  dissolvedBlock: Int
+  updatedAt: Date
+  createdAt: Date
+  isFinished: Boolean @index
+  wonAuctionId: String @index 
+  contributions: [Contribution] @derivedFrom(field: "fund")
+}
+
+
+
+type Contribution @entity {
+  id: ID!
+  account: String! @index
+  parachain: Parachain!
+  fund: Crowdloan!
+  amount: BigInt! @index
+  blockNum: Int! @index
+  createdAt: Date!
+}
+
+type Chronicle @entity {
+  id: ID! # Static 'ChronicleKey'
+  curBlockNum: Int
+  curLease: Int
+  curLeaseStart: Int
+  curLeaseEnd: Int
+  parachains: [Parachain] @derivedFrom(field: "chronicle")
+}
+
+type CrowdloanSequence @entity {
+  id: ID!
+  curIndex: Int!
+  createdAt: Date!
+  blockNum: Int!
+}
