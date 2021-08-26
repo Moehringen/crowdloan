@@ -1,1 +1,1 @@
-export const ChronicleKey = 'Litentry';
+export const ChronicleKey = 'ChronicleKey';
