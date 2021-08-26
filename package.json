@@ -19,9 +19,16 @@
   "author": "Hao Ding",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@polkadot/api": "^4.6.2",
-    "@subql/cli": "latest",
-    "@subql/types": "latest",
+    "@polkadot/api": "^4.15.1",
+    "@subql/cli": "0.10.0",
+    "@subql/types": "0.8.0",
     "typescript": "^4.1.3"
+  },
+  "resolutions": {
+    "@polkadot/api": "4.17.1",
+    "@subql/node": "^0.18.0"
+  },
+  "dependencies": {
+    "@subql/node": "^0.18.0"
   }
 }
