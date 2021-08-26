@@ -20,15 +20,15 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@polkadot/api": "latest",
-    "@subql/cli": "0.10.0",
-    "@subql/types": "0.8.0",
-    "typescript": "^4.1.3"
+    "@subql/cli": "latest",
+    "@subql/types": "latest",
+    "typescript": "latest"
   },
   "resolutions": {
     "@polkadot/api": "latest",
-    "@subql/node": "^0.18.0"
+    "@subql/node": "latest"
   },
   "dependencies": {
-    "@subql/node": "^0.18.0"
+    "@subql/node": "latest"
   }
 }
